@@ -12,16 +12,38 @@ import math
 #print the matrix such that it looks like
 #the template in the top comment
 def print_matrix( matrix ):
-    pass
+    final = ""
+    for i in matrix:
+        for j in i:
+            final += str(j)
+            final += " "
+        final += "\n"
+    print(final)
+
+#print_matrix([[0,1,2,3],[0,1,2,3],[0,1,2,3]])
 
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
-    pass
+    counter = 0
+    length = len(matrix)
+    while counter < length:
+        for i in range(length):
+            if i == counter:
+                matrix[counter][i] = 1
+            else:
+                matrix[counter][i] = 0
+        counter += 1
+    return
+
+m1 = [[0,1,2,3],[0,1,2,3],[0,1,2,3],[2,7,4,8]]
+ident(m1)
+print_matrix(m1)
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
+    #colums of first equals rows of first
     pass
 
 
@@ -33,4 +55,4 @@ def new_matrix(rows = 4, cols = 4):
         m.append( [] )
         for r in range( rows ):
             m[c].append( 0 )
-return m
+    return m
