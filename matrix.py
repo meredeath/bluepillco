@@ -36,19 +36,28 @@ def ident( matrix ):
         counter += 1
     return
 
-m1 = [[0,1,2,3],[0,1,2,3],[0,1,2,3],[2,7,4,8]]
-ident(m1)
-print_matrix(m1)
+#few tests I'm just going to comment out
+#m1 = [[0,1,2,3],[0,1,2,3],[0,1,2,3],[2,7,4,8]]
+#ident(m1)
+#m2 = [[3,4,5,6],[2,4,8,6],[35,87,9,5],[34,7,53,8]]
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    #colums of first equals rows of first
-    pass
-
-
-
-
+    #columns of first equals rows of second
+    if len(m1[0]) != len(m2):
+        return
+    else:
+        counter = len(m2)
+        for i in range(counter):
+            element = []
+            for j in range(4):
+                n = 0
+                for k in range(4):
+                    n += m1[k][j] * m2[i][k]
+                element.append(n)
+            m2[i] = element
+        
 def new_matrix(rows = 4, cols = 4):
     m = []
     for c in range( cols ):
