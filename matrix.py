@@ -63,14 +63,15 @@ def matrix_mult( m1, m2 ):
         m1row = 0
         m2col = 0
         while m1row < len(m1):
-            while m2col < len(m1):
-                s = 0 #the sum so far
-                counter = 0
-                while counter < len(m1[0]):
-                    s += m1[m1row][counter] * m2[counter][m1row]
-                    counter += 1
-                m2[m1row][m2col] = s
+            s = 0
+            while m2col < len(m1[0]):
+                
+                #counter = 0
+                #while counter < len(m1[0]):
+                s += m1[m1row][m2col] * m2[m2col][m1row]
+                #counter += 1
                 m2col += 1
+            m2[m1row][m2col-1] = s
             m1row += 1
 
 print("before: \n")
