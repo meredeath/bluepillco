@@ -45,42 +45,39 @@ m2 = [[3,4,5,6],[2,4,8,6],[35,87,9,5],[34,7,53,8]]
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
     #columns of first equals rows of second
-    if len(m1[0]) != len(m2):
-        return
-    else:
-        #for each row in the first matrix, we're going to take the dot product
-        m1row = 0
+    #for each row in the first matrix, we're going to take the dot product
+    m1row = 0
+    m2col = 0
+    lim = len(m1)
+    ans = []
+    for i in range(lim):
+        ans.append([])
+    for i in ans:
+        c = 0
+        while c < lim:
+            i.append(0)
+            c += 1
+    while m1row < lim:
         m2col = 0
-        lim = len(m1)
-        ans = []
-        for i in range(lim):
-            ans.append([])
-        for i in ans:
-            c = 0
-            while c < lim:
-                i.append(0)
-                c += 1
-        while m1row < lim:
-            m2col = 0
-            while m2col < lim:
-                s = 0
-                counter = 0
-                while counter < lim: #sums the dot product             
-                    s += m1[m1row][counter] * m2[counter][m2col]
-                    counter += 1
-                ans[m1row][m2col] = s
-                m2col += 1
-            m1row += 1
-        
-        a = 0
+        while m2col < lim:
+            s = 0
+            counter = 0
+            while counter < lim: #sums the dot product             
+                s += m1[m1row][counter] * m2[counter][m2col]
+                counter += 1
+            ans[m1row][m2col] = s
+            m2col += 1
+        m1row += 1
+            
+    a = 0
+    b = 0
+    while a < len(ans):
         b = 0
-        while a < len(ans):
-            b = 0
-            while b < len(ans[0]):
-                m2[a][b] = ans[a][b]
-                b += 1
-            a += 1
-        
+        while b < len(ans[0]):
+            m2[a][b] = ans[a][b]
+            b += 1
+        a += 1
+            
 
 print("before: \n")
 print_matrix(m1)
