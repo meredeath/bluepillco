@@ -48,31 +48,39 @@ def matrix_mult( m1, m2 ):
     if len(m1[0]) != len(m2):
         return
     else:
-        '''
-        counter = len(m2)
-        for i in range(counter):
-            element = []
-            for j in range(4):
-                n = 0
-                for k in range(4):
-                    n += m1[k][j] * m2[i][k]
-                element.append(n)
-            m2[i] = element
-        '''
         #for each row in the first matrix, we're going to take the dot product
         m1row = 0
         m2col = 0
-        while m1row < len(m1):
-            s = 0
-            while m2col < len(m1[0]):
-                
-                #counter = 0
-                #while counter < len(m1[0]):
-                s += m1[m1row][m2col] * m2[m2col][m1row]
-                #counter += 1
+        lim = len(m1)
+        ans = []
+        for i in range(lim):
+            ans.append([])
+        for i in ans:
+            c = 0
+            while c < lim:
+                i.append(0)
+                c += 1
+        while m1row < lim:
+            m2col = 0
+            while m2col < lim:
+                s = 0
+                counter = 0
+                while counter < lim: #sums the dot product             
+                    s += m1[m1row][counter] * m2[counter][m2col]
+                    counter += 1
+                ans[m1row][m2col] = s
                 m2col += 1
-            m2[m1row][m2col-1] = s
             m1row += 1
+        
+        a = 0
+        b = 0
+        while a < len(ans):
+            b = 0
+            while b < len(ans[0]):
+                m2[a][b] = ans[a][b]
+                b += 1
+            a += 1
+        
 
 print("before: \n")
 print_matrix(m1)
