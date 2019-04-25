@@ -78,14 +78,15 @@ def matrix_mult( m1, m2 ):
             b += 1
         a += 1
             
-
+'''
 print("before: \n")
 print_matrix(m1)
 print_matrix(m2)
 matrix_mult(m1,m2)
 print("\nafter\n")
 print_matrix(m2)
-        
+'''
+
 def new_matrix(rows = 4, cols = 4):
     m = []
     '''
